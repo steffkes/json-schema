@@ -34,10 +34,10 @@ class RefResolver
      * @param UriRetrieverInterface $retriever
      * @param UriResolverInterface $uriResolver
      */
-    public function __construct(UriRetrieverInterface $retriever, UriResolverInterface $uriResolver)
+    public function __construct(UriRetrieverInterface $retriever = null, UriResolverInterface $uriResolver = null)
     {
-        $this->uriRetriever = $retriever;
-        $this->uriResolver = $uriResolver;
+        $this->uriRetriever = $retriever ?: new UriRetriever();
+        $this->uriResolver = $uriResolver ?: new UriResolver();
     }
 
     /**
